@@ -1,0 +1,8 @@
+django-rest-framework
+SQLAlchemy
+aldjemy
+requests
+faust
+django-debug-toolbar
+django-cors-headers
+django-braces
