@@ -1,0 +1,15 @@
+.mat-sort-header-container {
+    align-items: center;
+  }
+  
+.approved-true {
+      background-color: green;
+  }
+
+.approved-false {
+    background-color: lightblue;
+}
+
+table {
+    width: 80%;
+}

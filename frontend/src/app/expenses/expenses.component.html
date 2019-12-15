@@ -1,0 +1,34 @@
+<div *ngIf="inprogress">
+    Working.. Please wait.
+</div>
+
+<div *ngIf="backendUnavailable">
+    <b>Sorry, the server isn't available at the moment. Please retry after sometime.</b>
+</div>
+
+<div *ngIf="expensesAvailable">
+    <h3>Cashcog expense approval</h3>
+    <table matSort (matSortChange)="sortExpenses($event)">
+        <tr>
+            <th mat-cell mat-sort-header="uuid">UUID</th>
+            <th mat-sort-header="description">Description</th>
+            <th mat-sort-header="created_at">Created at</th>
+            <th mat-sort-header="amount">Amount</th>
+            <th mat-sort-header="currency">Currency</th>
+            <th mat-sort-header="employee">Employee</th>
+            <th mat-sort-header="approval">Approved?</th>
+        </tr>
+        
+
+        <tr *ngFor="let expense of allExpenses; let i = index; trackBy: trackExpense">
+            <td>{{expense.uuid}}</td>
+            <td>{{expense.description}}</td>
+            <td>{{expense.created_at}}</td>
+            <td>{{expense.amount}}</td>
+            <td>{{expense.currency}}</td>
+            <td>{{expense.employee.first_name + " " + expense.employee.last_name}}</td>
+            <td class="approved-{{expense.expense_approved}}">{{expense.expense_approved}}</td>
+            <button mat-raised-button (click)="processExpense(i, expense)">Update</button>
+        </tr>
+    </table>
+</div>
